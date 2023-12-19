@@ -110,6 +110,8 @@ def add_wisata():
         name = request.form.get('name')
         description = request.form.get('description')
         location = request.form.get('location')
+        category = request.form.get('category')
+
         # total_tickets = int(request.form.get('total_tickets'))
 
         today = datetime.now()
@@ -123,12 +125,13 @@ def add_wisata():
         # formatted_price = format_currency(price, 'IDR', locale='id_ID')
         db.wisata.insert_one({
             'name': name,
+            'categoy': category,
             'description': description,
             'location': location,
             'price': price,
             'image_wisata': filename,
         })
-        return redirect('/admin/wisata')
+        return redirect('/admin-wisata')
 
     if request.method == 'GET':
         return render_template('admin-add-wisata.html')
