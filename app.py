@@ -84,6 +84,10 @@ def login():
             session["category"] = result['category']
 
             flash('Logout successful')
+
+            if result['category'] == 'admin':
+                return redirect('/admin-wisata')
+
             return redirect('/')
 
         else:
