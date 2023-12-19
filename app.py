@@ -139,3 +139,8 @@ def add_wisata():
 
     if request.method == 'GET':
         return render_template('admin-add-wisata.html')
+
+
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
